@@ -42,6 +42,19 @@ public class CacheConfiguration {
             cm.createCache(daara.kebemer.sn.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(daara.kebemer.sn.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(daara.kebemer.sn.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Eleve.class.getName(), jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Eleve.class.getName() + ".inscrits", jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Eleve.class.getName() + ".niveauEtuds", jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Classe.class.getName(), jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Classe.class.getName() + ".inscrits", jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Inscrit.class.getName(), jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Niveau.class.getName(), jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Niveau.class.getName() + ".niveauEtuds", jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.NiveauEtud.class.getName(), jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Parent.class.getName(), jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Parent.class.getName() + ".eleves", jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Maitre.class.getName(), jcacheConfiguration);
+            cm.createCache(daara.kebemer.sn.domain.Maitre.class.getName() + ".classes", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,24 @@
+
+{
+    "daaraApp": {
+        "inscrit" : {
+            "home": {
+                "title": "Inscrits",
+                "createLabel": "Create a new Inscrit",
+                "createOrEditLabel": "Create or edit a Inscrit"
+            },
+            "created": "A new Inscrit is created with identifier {{ param }}",
+            "updated": "A Inscrit is updated with identifier {{ param }}",
+            "deleted": "A Inscrit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Inscrit {{ id }}?"
+            },
+            "detail": {
+                "title": "Inscrit"
+            },
+            "dateInscrit": "Date Inscrit",
+            "etudiant": "Etudiant",
+            "niveau": "Niveau"
+        }
+    }
+}

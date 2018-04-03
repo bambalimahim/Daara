@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "niveauEtud",
+            "otherEntityName": "niveauEtud",
+            "otherEntityRelationshipName": "niveau"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codeNiveau",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "niveau",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180403154502",
+    "entityTableName": "niveau",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

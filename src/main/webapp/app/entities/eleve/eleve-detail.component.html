@@ -1,0 +1,52 @@
+
+<div *ngIf="eleve">
+    <h2><span jhiTranslate="daaraApp.eleve.detail.title">Eleve</span> {{eleve.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="daaraApp.eleve.prenom">Prenom</span></dt>
+        <dd>
+            <span>{{eleve.prenom}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.eleve.nom">Nom</span></dt>
+        <dd>
+            <span>{{eleve.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.eleve.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{eleve.phoneNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.eleve.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{eleve.adresse}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.eleve.matricule">Matricule</span></dt>
+        <dd>
+            <span>{{eleve.matricule}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.eleve.dateNaissance">Date Naissance</span></dt>
+        <dd>
+            <span>{{eleve.dateNaissance | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.eleve.parent">Parent</span></dt>
+        <dd>
+            <div *ngIf="eleve.parent">
+                <a [routerLink]="['/parent', eleve.parent?.id]">{{eleve.parent?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'eleve/'+ eleve.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

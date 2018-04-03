@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="daaraApp.niveauEtud.home.title">Niveau Etuds</span>
+        <button class="btn btn-primary float-right jh-create-entity create-niveau-etud" [routerLink]="['/', { outlets: { popup: ['niveau-etud-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="daaraApp.niveauEtud.home.createLabel">
+            Create new Niveau Etud
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="niveauEtuds">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="daaraApp.niveauEtud.dateNiveau">Date Niveau</span></th>
+            <th><span jhiTranslate="daaraApp.niveauEtud.etudiant">Etudiant</span></th>
+            <th><span jhiTranslate="daaraApp.niveauEtud.niveau">Niveau</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let niveauEtud of niveauEtuds ;trackBy: trackId">
+                <td><a [routerLink]="['../niveau-etud', niveauEtud.id ]">{{niveauEtud.id}}</a></td>
+                <td>{{niveauEtud.dateNiveau | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="niveauEtud.etudiant">
+                        <a [routerLink]="['../eleve', niveauEtud.etudiant?.id ]" >{{niveauEtud.etudiant?.matricule}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="niveauEtud.niveau">
+                        <a [routerLink]="['../niveau', niveauEtud.niveau?.id ]" >{{niveauEtud.niveau?.codeNiveau}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../niveau-etud', niveauEtud.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'niveau-etud/'+ niveauEtud.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'niveau-etud/'+ niveauEtud.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

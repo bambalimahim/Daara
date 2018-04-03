@@ -1,0 +1,38 @@
+
+<div *ngIf="parent">
+    <h2><span jhiTranslate="daaraApp.parent.detail.title">Parent</span> {{parent.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="daaraApp.parent.nom">Nom</span></dt>
+        <dd>
+            <span>{{parent.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.parent.prenom">Prenom</span></dt>
+        <dd>
+            <span>{{parent.prenom}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.parent.telephone">Telephone</span></dt>
+        <dd>
+            <span>{{parent.telephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.parent.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{parent.adresse}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'parent/'+ parent.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

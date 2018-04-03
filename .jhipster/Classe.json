@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inscrit",
+            "otherEntityName": "inscrit",
+            "otherEntityRelationshipName": "niveau"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "maitre",
+            "otherEntityName": "maitre",
+            "otherEntityField": "matricule"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codeClasse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomClasse",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180403154500",
+    "entityTableName": "classe",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

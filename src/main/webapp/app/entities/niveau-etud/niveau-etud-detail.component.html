@@ -1,0 +1,38 @@
+
+<div *ngIf="niveauEtud">
+    <h2><span jhiTranslate="daaraApp.niveauEtud.detail.title">Niveau Etud</span> {{niveauEtud.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="daaraApp.niveauEtud.dateNiveau">Date Niveau</span></dt>
+        <dd>
+            <span>{{niveauEtud.dateNiveau | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.niveauEtud.etudiant">Etudiant</span></dt>
+        <dd>
+            <div *ngIf="niveauEtud.etudiant">
+                <a [routerLink]="['/eleve', niveauEtud.etudiant?.id]">{{niveauEtud.etudiant?.matricule}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.niveauEtud.niveau">Niveau</span></dt>
+        <dd>
+            <div *ngIf="niveauEtud.niveau">
+                <a [routerLink]="['/niveau', niveauEtud.niveau?.id]">{{niveauEtud.niveau?.codeNiveau}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'niveau-etud/'+ niveauEtud.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

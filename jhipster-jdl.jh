@@ -1,0 +1,57 @@
+
+/**
+ * The Employee entity.
+ */
+entity Eleve {
+	prenom String required,
+	nom String required,
+	phoneNumber String required,
+	adresse String required,
+    matricule String,
+	dateNaissance LocalDate required,
+}
+entity Classe{
+	codeClasse String,
+	nomClasse String required
+}
+entity Inscrit{
+	dateInscrit LocalDate required,
+}
+
+entity Niveau {
+	codeNiveau String,
+	niveau String required
+}
+
+entity NiveauEtud{
+	dateNiveau LocalDate required
+}
+entity Maitre{
+	matricule String required,
+	nom String required,
+    prenom String required,
+    telephone String required,
+    adresse String required
+}
+entity Parent{
+	nom String required,
+    prenom String required,
+    telephone String required,
+    adresse String required
+}
+relationship OneToMany{
+    Eleve{inscrit} to Inscrit{etudiant(matricule) required},
+    Classe{inscrit} to Inscrit{niveau(codeNiveau) required},
+    Eleve{niveauEtud} to NiveauEtud{etudiant(matricule) required},
+    Niveau{niveauEtud} to NiveauEtud{niveau(codeNiveau) required},
+    Maitre{classe} to Classe{maitre(matricule) required},
+    Parent{eleve} to Eleve{parent required}
+}
+
+relationship OneToOne{
+	Maitre{user(login) required} to User
+}
+// Set pagination options
+paginate Eleve, Niveau with pagination
+
+

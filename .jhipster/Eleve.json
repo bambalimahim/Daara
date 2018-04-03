@@ -1,0 +1,72 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inscrit",
+            "otherEntityName": "inscrit",
+            "otherEntityRelationshipName": "etudiant"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "niveauEtud",
+            "otherEntityName": "niveauEtud",
+            "otherEntityRelationshipName": "etudiant"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "parent",
+            "otherEntityName": "parent",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "adresse",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "matricule",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateNaissance",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180403154459",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "eleve",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

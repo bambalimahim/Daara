@@ -1,0 +1,25 @@
+
+{
+    "daaraApp": {
+        "classe" : {
+            "home": {
+                "title": "Classes",
+                "createLabel": "Créer un nouveau Classe",
+                "createOrEditLabel": "Créer ou éditer un Classe"
+            },
+            "created": "Un nouveau Classe a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Classe avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Classe avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Classe {{ id }} ?"
+            },
+            "detail": {
+                "title": "Classe"
+            },
+            "codeClasse": "Code Classe",
+            "nomClasse": "Nom Classe",
+            "inscrit": "Inscrit",
+            "maitre": "Maitre"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myInscritLabel" jhiTranslate="daaraApp.inscrit.home.createOrEditLabel">Create or edit a Inscrit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!inscrit.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="inscrit.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="daaraApp.inscrit.dateInscrit" for="field_dateInscrit">Date Inscrit</label>
+            <div class="input-group">
+                <input id="field_dateInscrit" type="text" class="form-control" name="dateInscrit" ngbDatepicker  #dateInscritDp="ngbDatepicker" [(ngModel)]="inscrit.dateInscrit"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateInscritDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.dateInscrit?.dirty && editForm.controls.dateInscrit?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dateInscrit?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="daaraApp.inscrit.etudiant" for="field_etudiant">Etudiant</label>
+            <select class="form-control" id="field_etudiant" name="etudiant" [(ngModel)]="inscrit.etudiant"  required>
+                <option *ngIf="!editForm.value.etudiant" [ngValue]="null" selected></option>
+                <option [ngValue]="eleveOption.id === inscrit.etudiant?.id ? inscrit.etudiant : eleveOption" *ngFor="let eleveOption of eleves; trackBy: trackEleveById">{{eleveOption.matricule}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.etudiant?.dirty && editForm.controls.etudiant?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.etudiant?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="daaraApp.inscrit.niveau" for="field_niveau">Niveau</label>
+            <select class="form-control" id="field_niveau" name="niveau" [(ngModel)]="inscrit.niveau"  required>
+                <option *ngIf="!editForm.value.niveau" [ngValue]="null" selected></option>
+                <option [ngValue]="classeOption.id === inscrit.niveau?.id ? inscrit.niveau : classeOption" *ngFor="let classeOption of classes; trackBy: trackClasseById">{{classeOption.codeNiveau}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.niveau?.dirty && editForm.controls.niveau?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.niveau?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

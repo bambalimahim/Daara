@@ -1,0 +1,24 @@
+
+{
+    "daaraApp": {
+        "niveauEtud" : {
+            "home": {
+                "title": "NiveauEtuds",
+                "createLabel": "Créer un nouveau Niveau Etud",
+                "createOrEditLabel": "Créer ou éditer un Niveau Etud"
+            },
+            "created": "Un nouveau Niveau Etud a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Niveau Etud avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Niveau Etud avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Niveau Etud {{ id }} ?"
+            },
+            "detail": {
+                "title": "Niveau Etud"
+            },
+            "dateNiveau": "Date Niveau",
+            "etudiant": "Etudiant",
+            "niveau": "Niveau"
+        }
+    }
+}

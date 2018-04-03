@@ -1,0 +1,28 @@
+
+{
+    "daaraApp": {
+        "maitre" : {
+            "home": {
+                "title": "Maitres",
+                "createLabel": "Créer un nouveau Maitre",
+                "createOrEditLabel": "Créer ou éditer un Maitre"
+            },
+            "created": "Un nouveau Maitre a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Maitre avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Maitre avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Maitre {{ id }} ?"
+            },
+            "detail": {
+                "title": "Maitre"
+            },
+            "matricule": "Matricule",
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "telephone": "Telephone",
+            "adresse": "Adresse",
+            "user": "User",
+            "classe": "Classe"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+
+{
+    "daaraApp": {
+        "parent" : {
+            "home": {
+                "title": "Parents",
+                "createLabel": "Créer un nouveau Parent",
+                "createOrEditLabel": "Créer ou éditer un Parent"
+            },
+            "created": "Un nouveau Parent a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Parent avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Parent avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Parent {{ id }} ?"
+            },
+            "detail": {
+                "title": "Parent"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "telephone": "Telephone",
+            "adresse": "Adresse",
+            "eleve": "Eleve"
+        }
+    }
+}

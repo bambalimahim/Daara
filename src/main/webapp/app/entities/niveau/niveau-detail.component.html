@@ -1,0 +1,30 @@
+
+<div *ngIf="niveau">
+    <h2><span jhiTranslate="daaraApp.niveau.detail.title">Niveau</span> {{niveau.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="daaraApp.niveau.codeNiveau">Code Niveau</span></dt>
+        <dd>
+            <span>{{niveau.codeNiveau}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.niveau.niveau">Niveau</span></dt>
+        <dd>
+            <span>{{niveau.niveau}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'niveau/'+ niveau.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

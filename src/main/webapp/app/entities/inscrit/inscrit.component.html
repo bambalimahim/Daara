@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="daaraApp.inscrit.home.title">Inscrits</span>
+        <button class="btn btn-primary float-right jh-create-entity create-inscrit" [routerLink]="['/', { outlets: { popup: ['inscrit-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="daaraApp.inscrit.home.createLabel">
+            Create new Inscrit
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="inscrits">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="daaraApp.inscrit.dateInscrit">Date Inscrit</span></th>
+            <th><span jhiTranslate="daaraApp.inscrit.etudiant">Etudiant</span></th>
+            <th><span jhiTranslate="daaraApp.inscrit.niveau">Niveau</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let inscrit of inscrits ;trackBy: trackId">
+                <td><a [routerLink]="['../inscrit', inscrit.id ]">{{inscrit.id}}</a></td>
+                <td>{{inscrit.dateInscrit | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="inscrit.etudiant">
+                        <a [routerLink]="['../eleve', inscrit.etudiant?.id ]" >{{inscrit.etudiant?.matricule}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscrit.niveau">
+                        <a [routerLink]="['../classe', inscrit.niveau?.id ]" >{{inscrit.niveau?.codeNiveau}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../inscrit', inscrit.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'inscrit/'+ inscrit.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'inscrit/'+ inscrit.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+
+<div *ngIf="maitre">
+    <h2><span jhiTranslate="daaraApp.maitre.detail.title">Maitre</span> {{maitre.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="daaraApp.maitre.matricule">Matricule</span></dt>
+        <dd>
+            <span>{{maitre.matricule}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.maitre.nom">Nom</span></dt>
+        <dd>
+            <span>{{maitre.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.maitre.prenom">Prenom</span></dt>
+        <dd>
+            <span>{{maitre.prenom}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.maitre.telephone">Telephone</span></dt>
+        <dd>
+            <span>{{maitre.telephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.maitre.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{maitre.adresse}}</span>
+        </dd>
+        <dt><span jhiTranslate="daaraApp.maitre.user">User</span></dt>
+        <dd>
+            {{maitre.user?.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'maitre/'+ maitre.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

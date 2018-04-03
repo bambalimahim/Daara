@@ -1,0 +1,24 @@
+
+{
+    "daaraApp": {
+        "niveauEtud" : {
+            "home": {
+                "title": "Niveau Etuds",
+                "createLabel": "Create a new Niveau Etud",
+                "createOrEditLabel": "Create or edit a Niveau Etud"
+            },
+            "created": "A new Niveau Etud is created with identifier {{ param }}",
+            "updated": "A Niveau Etud is updated with identifier {{ param }}",
+            "deleted": "A Niveau Etud is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Niveau Etud {{ id }}?"
+            },
+            "detail": {
+                "title": "Niveau Etud"
+            },
+            "dateNiveau": "Date Niveau",
+            "etudiant": "Etudiant",
+            "niveau": "Niveau"
+        }
+    }
+}

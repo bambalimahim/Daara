@@ -1,0 +1,54 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myClasseLabel" jhiTranslate="daaraApp.classe.home.createOrEditLabel">Create or edit a Classe</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!classe.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="classe.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="daaraApp.classe.codeClasse" for="field_codeClasse">Code Classe</label>
+            <input type="text" class="form-control" name="codeClasse" id="field_codeClasse"
+                [(ngModel)]="classe.codeClasse" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="daaraApp.classe.nomClasse" for="field_nomClasse">Nom Classe</label>
+            <input type="text" class="form-control" name="nomClasse" id="field_nomClasse"
+                [(ngModel)]="classe.nomClasse" required/>
+            <div [hidden]="!(editForm.controls.nomClasse?.dirty && editForm.controls.nomClasse?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nomClasse?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="daaraApp.classe.maitre" for="field_maitre">Maitre</label>
+            <select class="form-control" id="field_maitre" name="maitre" [(ngModel)]="classe.maitre"  required>
+                <option *ngIf="!editForm.value.maitre" [ngValue]="null" selected></option>
+                <option [ngValue]="maitreOption.id === classe.maitre?.id ? classe.maitre : maitreOption" *ngFor="let maitreOption of maitres; trackBy: trackMaitreById">{{maitreOption.matricule}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.maitre?.dirty && editForm.controls.maitre?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.maitre?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

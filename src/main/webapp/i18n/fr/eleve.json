@@ -1,0 +1,30 @@
+
+{
+    "daaraApp": {
+        "eleve" : {
+            "home": {
+                "title": "Eleves",
+                "createLabel": "Créer un nouveau Eleve",
+                "createOrEditLabel": "Créer ou éditer un Eleve"
+            },
+            "created": "Un nouveau Eleve a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Eleve avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Eleve avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Eleve {{ id }} ?"
+            },
+            "detail": {
+                "title": "Eleve"
+            },
+            "prenom": "Prenom",
+            "nom": "Nom",
+            "phoneNumber": "Phone Number",
+            "adresse": "Adresse",
+            "matricule": "Matricule",
+            "dateNaissance": "Date Naissance",
+            "inscrit": "Inscrit",
+            "niveauEtud": "Niveau Etud",
+            "parent": "Parent"
+        }
+    }
+}
